@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Lora", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.5rem;
+
+    --background: 0.98 0.01 269;
+    --foreground: 0.22 0.02 256;
+    --card: 1.0 0 0;
+    --card-foreground: 0.22 0.02 256;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.22 0.02 256;
+
+    --primary: 0.32 0.15 256;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.5 0.08 256;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.92 0.02 256;
+    --muted-foreground: 0.5 0.02 256;
+
+    --accent: 0.32 0.15 256;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 22;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.92 0.01 256;
+    --input: 0.96 0.01 256;
+    --ring: 0.32 0.15 256;
+
+    --chart-1: 0.55 0.22 22;
+    --chart-2: 0.65 0.18 46;
+    --chart-3: 0.32 0.15 256;
+    --chart-4: 0.72 0.15 190;
+    --chart-5: 0.45 0.08 256;
+
+    --warning: 0.78 0.15 80;
+    --warning-foreground: 0.22 0.06 70;
+    --success: 0.58 0.16 145;
+    --success-foreground: 0.98 0 0;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.22 0.02 256;
+    --sidebar-primary: 0.32 0.15 256;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0.02 256;
+    --sidebar-accent-foreground: 0.32 0.15 256;
+    --sidebar-border: 0.92 0.01 256;
+    --sidebar-ring: 0.32 0.15 256;
+  }
+
+  .dark {
+    --background: 0.15 0.02 260;
+    --foreground: 0.92 0.02 256;
+    --card: 0.2 0.02 260;
+    --card-foreground: 0.92 0.02 256;
+    --popover: 0.25 0.02 260;
+    --popover-foreground: 0.92 0.02 256;
+
+    --primary: 0.65 0.15 256;
+    --primary-foreground: 0.15 0.02 260;
+
+    --secondary: 0.4 0.08 256;
+    --secondary-foreground: 0.88 0.02 256;
+    --muted: 0.25 0.02 260;
+    --muted-foreground: 0.6 0.02 256;
+
+    --accent: 0.65 0.15 256;
+    --accent-foreground: 0.15 0.02 260;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.15 0.02 260;
+
+    --border: 0.3 0.02 260;
+    --input: 0.3 0.02 260;
+    --ring: 0.65 0.15 256;
+
+    --chart-1: 0.65 0.19 22;
+    --chart-2: 0.72 0.16 46;
+    --chart-3: 0.65 0.15 256;
+    --chart-4: 0.6 0.14 190;
+    --chart-5: 0.55 0.1 256;
+
+    --warning: 0.72 0.13 80;
+    --warning-foreground: 0.15 0.05 70;
+    --success: 0.65 0.14 145;
+    --success-foreground: 0.15 0.02 145;
+
+    --sidebar: 0.18 0.02 260;
+    --sidebar-foreground: 0.92 0.02 256;
+    --sidebar-primary: 0.65 0.15 256;
+    --sidebar-primary-foreground: 0.15 0.02 260;
+    --sidebar-accent: 0.25 0.02 260;
+    --sidebar-accent-foreground: 0.88 0.02 256;
+    --sidebar-border: 0.3 0.02 260;
+    --sidebar-ring: 0.65 0.15 256;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/fonts/Lora.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .badge-critical {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 text-xs font-semibold rounded-md;
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 text-xs font-semibold rounded-md;
+    background-color: oklch(var(--warning) / 0.18);
+    color: oklch(var(--warning-foreground));
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 text-xs font-semibold rounded-md;
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .badge-on-track {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 text-xs font-semibold rounded-md;
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .data-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .data-table-header {
+    @apply bg-muted/50 border-b border-border text-left text-xs font-semibold uppercase tracking-wider text-foreground;
+  }
+
+  .data-table-scroll-container {
+    @apply overflow-x-auto overflow-y-auto max-h-[480px];
+  }
+
+  .data-table-scroll-container thead tr.data-table-header th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: oklch(var(--muted) / 0.9);
+    backdrop-filter: blur(4px);
+  }
+
+  .data-table-row {
+    @apply border-b border-border hover:bg-muted/30 transition-smooth;
+  }
+
+  .card-elevated {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+  }
+
+  .summary-card {
+    @apply card-elevated p-6 space-y-2;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #monthly-report-content,
+  #monthly-report-content * {
+    visibility: visible;
+  }
+  #monthly-report-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    border: none;
+    box-shadow: none;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

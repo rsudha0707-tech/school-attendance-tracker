@@ -1,0 +1,65 @@
+type Student = 
+ record {
+   grade: nat;
+   id: text;
+   name: text;
+   teacher: text;
+ };
+type LetterRecord = 
+ record {
+   id: text;
+   sentAt: int;
+   sentBy: text;
+   studentId: text;
+ };
+type ContactNote = 
+ record {
+   author: text;
+   createdAt: int;
+   id: text;
+   studentId: text;
+   "text": text;
+ };
+type AuditEntry = 
+ record {
+   action: text;
+   actorName: text;
+   id: text;
+   studentId: text;
+   studentName: text;
+   timestamp: int;
+ };
+type AttendanceStatus = 
+ variant {
+   absent;
+   excused;
+   holiday;
+   present;
+   weekend;
+ };
+type AttendanceRecord = 
+ record {
+   date: text;
+   status: AttendanceStatus;
+   studentId: text;
+ };
+service : {
+  addNote: (studentId: text, studentName: text, "text": text, author:
+   text) -> (text);
+  clearAllData: () -> ();
+  dismissAlert: (studentId: text, studentName: text, dismissedBy: text) -> ();
+  getAllLetterHistory: () -> (vec LetterRecord) query;
+  getAllNotes: () -> (vec ContactNote) query;
+  getAttendanceForDateRange: (startDate: text, endDate: text) ->
+   (vec AttendanceRecord) query;
+  getAttendanceForStudent: (studentId: text) -> (vec AttendanceRecord) query;
+  getAuditLog: () -> (vec AuditEntry) query;
+  getDismissedAlerts: () -> (vec text) query;
+  getLetterHistoryForStudent: (studentId: text) -> (vec LetterRecord) query;
+  getNotesForStudent: (studentId: text) -> (vec ContactNote) query;
+  getStudents: () -> (vec Student) query;
+  getStudentsByGrade: (grade: nat) -> (vec Student) query;
+  getStudentsByTeacher: (teacher: text) -> (vec Student) query;
+  reinstateAlert: (studentId: text) -> ();
+  sendLetter: (studentId: text, studentName: text, sentBy: text) -> (text);
+}

@@ -1,0 +1,29 @@
+{
+  "overview": "A comprehensive chronic absenteeism tracking dashboard for Jefferson Middle School (650 students, grades 6–8). Features interactive charts, grade filters, trend analysis, accountability tracking, role-based views, reporting, and an audit log — all optimized for desktop and mobile.",
+  "features": [
+    "Summary cards for today's attendance rate, chronic absences, and newly flagged students",
+    "Grade filter buttons updating all charts and tables in real time",
+    "Line chart for daily attendance rate and bar chart for chronic absenteeism by grade",
+    "Sortable, searchable student table with trend arrows and milestone badges",
+    "Student detail panel with navigable attendance calendar",
+    "Alert system with notification bell, dismiss, and parent letter modal",
+    "Accountability tracking: letter-sent timestamps, notes per student, days since last contact",
+    "Early warning: trend arrows and predictive flags for at-risk students",
+    "Reporting: monthly summary, month-vs-month comparison, homeroom breakdown",
+    "Day-of-week attendance pattern chart",
+    "Role switcher (Principal/Teacher) filtering data to homeroom",
+    "Audit log of all actions with timestamps",
+    "CSV export and live search",
+    "Mobile-optimized responsive design"
+  ],
+  "category": "productivity",
+  "tags": [
+    "education",
+    "attendance",
+    "dashboard",
+    "school",
+    "analytics",
+    "reporting"
+  ],
+  "last_updated": "2026-04-16T13:25:52.496Z"
+}
